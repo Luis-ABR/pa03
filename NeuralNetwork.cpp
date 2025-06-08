@@ -1,5 +1,6 @@
 #include <unordered_set>
 #include <queue>
+#include <algorithm>
 #include "NeuralNetwork.hpp"
 using namespace std;
 
