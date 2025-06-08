@@ -37,13 +37,8 @@ vector<int> NeuralNetwork::getOutputNodeIds() const {
     return outputNodeIds;
 }
 
-#include <unordered_set>
-#include <queue>
-#include "NeuralNetwork.hpp"
-
 
 vector<double> NeuralNetwork::predict(DataInstance instance) {
-    // 1) load inputs
     for (auto* n : nodes) {
         n->preActivationValue = 0;
         n->postActivationValue = 0;
@@ -62,7 +57,6 @@ vector<double> NeuralNetwork::predict(DataInstance instance) {
     while (!q.empty()) {
         int v = q.front(); q.pop();
         if (!seen.insert(v).second) continue;
-        // gather from all parents
         for (int u = 0; u < (int)adjacencyList.size(); ++u) {
             auto it = adjacencyList[u].find(v);
             if (it != adjacencyList[u].end()) {
@@ -151,9 +145,6 @@ bool NeuralNetwork::update() {
     flush();
     return true;
 }
-
-
-
 
 
 // Feel free to explore the remaining code, but no need to implement past this point

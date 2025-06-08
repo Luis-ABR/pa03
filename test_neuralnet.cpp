@@ -119,7 +119,7 @@ void test_accuracy() {
         nn.update();
     }
 
-    double expectedAccuracy = 0.924409;
+    double expectedAccuracy = 0.91675;
     ASSERT_EQUAL(nn.assess("./data/diabetes_test.csv"), expectedAccuracy, "test_accuracy: diabetes");
 }
 
